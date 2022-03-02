@@ -46,6 +46,6 @@ class FileStorage:
                 for key, value in json_string.items():
                     a = BaseModel(**value)
                     new_dict = {key: a}
-                    self.__objects.update(new_dict)
+                    self.__objects.update(new_dict) 
         except Exception:
             pass

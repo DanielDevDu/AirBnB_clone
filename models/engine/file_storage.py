@@ -1,20 +1,9 @@
 #!/usr/bin/python3
 """ Class FileStorage"""
 
-from email.policy import default
 from models.base_model import BaseModel
 import json
 from os import path
-import datetime
-from json import JSONEncoder
-
-
-# subclass JSONEncoder
-class DateTimeEncoder(JSONEncoder):
-    # Override the default method
-    def default(self, obj):
-        if isinstance(obj, (datetime.date, datetime.datetime)):
-            return obj.isoformat()
 
 
 class FileStorage:
@@ -25,7 +14,6 @@ class FileStorage:
 
     __file_path = "file.json"
     __objects = {}
-    __current_dict = {}
 
     def all(self):
         """Public instance, return dictionary"""
@@ -34,10 +22,8 @@ class FileStorage:
     def new(self, obj):
         """sets in __objects the obj with key <obj class name>.id"""
         key = obj.__class__.__name__ + "." + obj.__dict__["id"]
-        #print("__Objects: {}".format(self.__objects))
         new_dict = {key: obj}
         self.__objects.update(new_dict)
-        #print("__Objects: {}".format(self.__objects))
         """
         if obj is not None:
             key = obj.__class.__name__ + "." + obj.__class.__name__.id
@@ -46,15 +32,11 @@ class FileStorage:
     def save(self):
         """Serializes __objects to the JSON file (path: __file_path)"""
         new_dict = {}
-        # print(self.__objects)
         for key, value in self.__objects.items():
-            #print("tyoe value: {}".format(type(value)))
-            #print("in loop: {}".format(value.to_dict()))
-            # self.__current_dict = value.to_dict()
             new_dict.update({key: value.to_dict()})
 
         with open(self.__file_path, mode="w+", encoding="utf-8") as file:
-            json.dump(new_dict, file, cls=DateTimeEncoder)
+            json.dump(new_dict, file)
 
     def reload(self):
         """Deserializes the JSON file to __objects"""

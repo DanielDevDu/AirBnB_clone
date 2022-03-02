@@ -48,11 +48,15 @@ class BaseModel:
         new_dict = self.__dict__.copy()
         new_dict["__class__"] = self.__class__.__name__
         if type(new_dict["created_at"]) is str:
-            new_dict["created_at"] = datetime.strptime(new_dict["created_at"], time)
+            new_dict["created_at"] = datetime.strptime(
+                new_dict["created_at"], time
+            ).isoformat()
         else:
             new_dict["created_at"] = new_dict["created_at"].isoformat()
         if type(new_dict["updated_at"]) is str:
-            new_dict["updated_at"] = datetime.strptime(new_dict["updated_at"], time)
+            new_dict["updated_at"] = datetime.strptime(
+                new_dict["updated_at"], time
+            ).isoformat()
         else:
             new_dict["updated_at"] = new_dict["updated_at"].isoformat()
         return new_dict

@@ -18,15 +18,19 @@ class BaseModel:
             for key, value in kwargs.items():
                 """if key is ["created_at", "updated_at"]:
                 setattr(self, key, datetime.fromisoformat(value))
-                if hasattr(self, "created_at") and type(self.created_at) is str:
-                    self.created_at = datetime.strptime(kwargs["created_at"], time)
-                if hasattr(self, "updated_at") and type(self.updated_at) is str:
-                    self.updated_at = datetime.strptime(kwargs["updated_at"], time)"""
-                if key is "created_at":
+                if hasattr(self, "created_at")
+                and type(self.created_at) is str:
+                self.created_at = datetime.strptime
+                (kwargs["created_at"], time)
+                if hasattr(self, "updated_at") and type
+                (self.updated_at) is str:
+                self.updated_at = datetime.strptime
+                (kwargs["updated_at"], time)"""
+                if key == "created_at":
                     value = datetime.strptime(value, time)
-                elif key is "updated_at":
+                elif key == "updated_at":
                     value = datetime.strptime(value, time)
-                if key is not "__class__" and key != "__class__":
+                if key != "__class__" and key != "__class__":
                     setattr(self, key, value)
         else:
             self.id = str(uuid.uuid4())
@@ -36,7 +40,8 @@ class BaseModel:
 
     def __str__(self):
         """String representation of the BaseModel class"""
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        return "[{}] ({}) {}".format(self.__class__.__name__, self.id,
+                                     self.__dict__)
 
     def save(self):
         """updates the attribute 'updated_at' with the current datetime"""

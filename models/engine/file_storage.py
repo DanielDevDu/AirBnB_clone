@@ -3,8 +3,23 @@
 
 from models.base_model import BaseModel
 from models.user import User
+from models.place import Place
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
 import json
 from os import path
+
+classes = {
+    "BaseModel": BaseModel,
+    "User": User,
+    "Place": Place,
+    "State": State,
+    "City": City,
+    "Amenity": Amenity,
+    "Review": Review,
+}
 
 
 class FileStorage:
@@ -47,6 +62,6 @@ class FileStorage:
                 for key, value in json_string.items():
                     a = BaseModel(**value)
                     new_dict = {key: a}
-                    self.__objects.update(new_dict) 
+                    self.__objects.update(new_dict)
         except Exception:
             pass

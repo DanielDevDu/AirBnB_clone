@@ -60,7 +60,7 @@ class FileStorage:
             with open(self.__file_path, mode="r", encoding="utf-8") as file:
                 json_string = json.load(file)
                 for key, value in json_string.items():
-                    a = BaseModel(**value)
+                    a = classes[value["__class__"]](**value)
                     new_dict = {key: a}
                     self.__objects.update(new_dict)
         except Exception:

@@ -163,8 +163,9 @@ class HBNBCommand(cmd.Cmd):
                         key = args[0] + "." + args[1]
                         if key in store.keys():
                             if len(args) > 3:  # exit attribute value?
-                                # args_re = re.findall("([*+])", args[3])
-                                setattr(store[key], args[2], args[3])
+                                args_re = args[3][1:-1]
+                                print("->", args_re)
+                                setattr(store[key], args[2], args_re)
                                 storage.save()
                             else:
                                 print("** value missing **")

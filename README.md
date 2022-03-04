@@ -12,8 +12,8 @@ This is the first step towards building our first full web application: the AirB
 
 ## Table of Content 📋
 
-* [Version](#Version-:white_check_mark:)
-* [Installation](#installation-😎)
+* [Version](#id-section1)
+* [Installation](#id-section2)
 * [Commands](#Commands-🪀)
 * [Usage](#usage-⌨️)
 * [Folders](#folders-📁)
@@ -22,9 +22,13 @@ This is the first step towards building our first full web application: the AirB
 * [Authors](#authors-✍️)
 * [License](#license-📌)
 
+<div id='id-section1'/>
+
 ## Version :white_check_mark:
 
 This project is interpreted, tested and created on Ubuntu 20.04.3 LTS using python3 (version 3.8.10)
+
+<div id='id-section2'/>
 
 ## Installation 😎
 

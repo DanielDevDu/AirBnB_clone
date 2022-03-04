@@ -10,6 +10,7 @@ from models.city import City
 from models.amenity import Amenity
 from models.review import Review
 from models.__init__ import storage
+import re
 
 
 classes = {
@@ -192,6 +193,29 @@ class HBNBCommand(cmd.Cmd):
                     print("** instance id missing **")
             else:
                 print("** class doesn't exist **")
+
+    def default(self, arg):
+        """
+        retrieve all instances of a class
+        Usage: <class name>.all()
+        """
+        args = arg.split(".")
+        store = storage.all()
+
+        if len(args) != 2 or args[0] not in classes:
+            cmd.Cmd.default(self, arg)
+        else:
+            if args[1] == "all()":
+                self.do_all(args[0])
+            elif args[1] == "count()":
+                sum = 0
+                for value in store.keys():
+                    class_name = value.split(".")[0]
+                    if class_name == args[0]:
+                        sum += 1
+                print(sum)
+            else:
+                cmd.Cmd.default(self, arg)
 
 
 if __name__ == "__main__":

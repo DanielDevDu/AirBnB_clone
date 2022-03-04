@@ -1,4 +1,4 @@
-# AirBnB Clone - The Console 🚀
+# AirBnB Clone - The Console :rocket:
 
 This is the first step towards building our first full web application: the AirBnB clone. The console is the first part of the AirBnB project at Holberton School. The goal of AirBnB project is to eventually develop our server as a simple copy of the AirBnB Website.
 
@@ -12,7 +12,7 @@ This is the first step towards building our first full web application: the AirB
 
 ## Table of Content 📋
 
-* [Version](#Version-✅)
+* [Version](#Version-:white_check_mark:)
 * [Installation](#installation-😎)
 * [Commands](#Commands-🪀)
 * [Usage](#usage-⌨️)
@@ -22,7 +22,7 @@ This is the first step towards building our first full web application: the AirB
 * [Authors](#authors-✍️)
 * [License](#license-📌)
 
-## Version ✅
+## Version :white_check_mark:
 
 This project is interpreted, tested and created on Ubuntu 20.04.3 LTS using python3 (version 3.8.10)
 

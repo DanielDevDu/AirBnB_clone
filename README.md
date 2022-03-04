@@ -1,6 +1,6 @@
 # AirBnB Clone - The Console :rocket:
 
- | ![Alt text](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU5BHMTQX4%2F20220304%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220304T115254Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=c2c66c667edc81c76b6f7a4352bacf2f8f0bce4e94da8a8e84a837ce51d1c05b "Title") |
+ | ![Alt text](https://www.altonivel.com.mx/wp-content/uploads/2020/07/airbnb.jpg "Title") |
  | ----------------------------------------------------------------- |
 
 This is the first step towards building our first full web application: the AirBnB clone. The console is the first part of the AirBnB project at Holberton School. The goal of AirBnB project is to eventually develop our server as a simple copy of the AirBnB Website.

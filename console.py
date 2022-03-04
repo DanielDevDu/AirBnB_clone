@@ -214,6 +214,12 @@ class HBNBCommand(cmd.Cmd):
                     if class_name == args[0]:
                         sum += 1
                 print(sum)
+            elif 'show("' in args[1] and args[1][-1] == ")":
+                index_start = args[1].find("(") + 2  # index where start the id
+                index_end = args[1].find(")") - 1  # index where end the id
+                id = args[1][index_start:index_end]
+                self.do_show(args[0] + " " + id)
+
             else:
                 cmd.Cmd.default(self, arg)
 

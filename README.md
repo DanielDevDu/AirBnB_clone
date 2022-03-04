@@ -1,5 +1,8 @@
 # AirBnB Clone - The Console :rocket:
 
+ | ![Alt text](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU5BHMTQX4%2F20220304%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220304T115254Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=c2c66c667edc81c76b6f7a4352bacf2f8f0bce4e94da8a8e84a837ce51d1c05b "Title") |
+ | ----------------------------------------------------------------- |
+
 This is the first step towards building our first full web application: the AirBnB clone. The console is the first part of the AirBnB project at Holberton School. The goal of AirBnB project is to eventually develop our server as a simple copy of the AirBnB Website.
 
 ## Functions of the Console 💻
@@ -14,13 +17,13 @@ This is the first step towards building our first full web application: the AirB
 
 * [Version](#id-section1)
 * [Installation](#id-section2)
-* [Commands](#Commands-🪀)
-* [Usage](#usage-⌨️)
-* [Folders](#folders-📁)
-* [Files](#files-🗂️)
-* [Bugs](#bugs-🐛)
-* [Authors](#authors-✍️)
-* [License](#license-📌)
+* [Commands](#id-section3)
+* [Usage](#id-section4)
+* [Folders](#id-section5)
+* [Files](#id-section6)
+* [Bugs](#id-section7)
+* [Authors](#id-section8)
+* [License](#id-section9)
 
 <div id='id-section1'/>
 
@@ -37,6 +40,8 @@ This project is interpreted, tested and created on Ubuntu 20.04.3 LTS using pyth
 * Run the console (interactive mode): `./console` and press enter to access the console.
 * Run the console (non-interactive mode): `echo "<command>" | ./console.py`.
 
+<div id='id-section3'/>
+
 ## Commands 🪀
 
 | COMMAND | DESCRIPTION |
@@ -50,6 +55,8 @@ This project is interpreted, tested and created on Ubuntu 20.04.3 LTS using pyth
 | destroy | Deletes an instance by it's name and id (id required) (saves the changes into the JSON file) |
 | all |  Prints all string representation of all instances |
 | update | Updates an instance by it's name and id, adding or updating attributes (saves the changes into the JSON file) |
+
+<div id='id-section4'/>
 
 ## Usage ⌨️
 
@@ -108,6 +115,8 @@ annie@DESKTOP-KMANJKQ:~/AirBnB_clone$ ./console.py
 (hbnb)
 ```
 
+<div id='id-section5'/>
+
 ## Folders 📁
 
 | FOLDERS | DESCRIPTION |
@@ -118,6 +127,8 @@ annie@DESKTOP-KMANJKQ:~/AirBnB_clone$ ./console.py
 | AUTHORS | Listing all individuals having contributed content to the repository (File)|
 | README.md | General description of the project (File)|
 | console.py | Command line interpreter (File)|
+
+<div id='id-section6'/>
 
 ## Files 🗂️
 
@@ -133,14 +144,21 @@ annie@DESKTOP-KMANJKQ:~/AirBnB_clone$ ./console.py
 | place.py | Place class inherits from basemodel |
 | review.py | Review class inherits from basemodel |
 
+<div id='id-section7'/>
+
 ## Bugs 🐛
 
 No known bugs til the date.
 
+<div id='id-section8'/>
+
 ## Authors ✍️
 
-Ana María Rocha Aguirre
-Daniel	Duarte Palacios 
+- **<a href="https://www.linkedin.com/in/daniel-duarte-palacios-537b33220/" target="_blank">Daniel Duarte Palacios</a>**
+
+- **<a href="https://www.linkedin.com/in/ana-rocha-b98174216/" target="_blank">Ana Maria Rocha</a>**
+
+<div id='id-section9'/>
 
 ## License 📌
 No copyright license registered.

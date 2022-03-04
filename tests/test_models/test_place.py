@@ -2,13 +2,22 @@
 """ Unittest for Place """
 import unittest
 from models.place import Place
-
+import pycodestyle as pep8
+import os
 
 place_inst = Place()
 
 
 class test_place(unittest.TestCase):
     """Imports Class Place"""
+
+    def test_pep8_Place(self):
+        """Test that checks for PEP8"""
+        syntax = pep8.StyleGuide(quit=True)
+        result = syntax.check_files(["models/place.py"])
+        self.assertEqual(
+            result.total_errors, 0, "Found code style errors (and warnings)."
+        )
 
     def test_obj(self):
         """Tests if place_inst is an instance of Place"""
@@ -81,3 +90,15 @@ class test_place(unittest.TestCase):
     def test_amenity_ids(self):
         """Test if amenity_ids is an attribute of place_inst"""
         self.assertTrue(hasattr(place_inst, "amenity_ids"), True)
+
+    def test_exist_file_json(self):
+        """Test that check if the file.json was create"""
+        path = "file.json"
+        new = Place()
+        self.assertTrue(os.path.isfile(path))
+
+    def test_model_from_dict(self):
+        """Test that check if two objects are equals"""
+        new_dict = place_inst.to_dict()
+        new_place = Place(**new_dict)
+        self.assertNotEqual(place_inst, new_place)

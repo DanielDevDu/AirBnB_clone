@@ -2,13 +2,22 @@
 """ Unittest for City """
 import unittest
 from models.city import City
-
+import pycodestyle as pep8
+import os
 
 city_inst = City()
 
 
 class test_city(unittest.TestCase):
     """Imports Class City"""
+
+    def test_pep8_City(self):
+        """Test that checks for PEP8"""
+        syntax = pep8.StyleGuide(quit=True)
+        result = syntax.check_files(["models/city.py"])
+        self.assertEqual(
+            result.total_errors, 0, "Found code style errors (and warnings)."
+        )
 
     def test_obj(self):
         """Tests if city_inst is an instance of City"""
@@ -41,3 +50,15 @@ class test_city(unittest.TestCase):
     def test_to_dict(self):
         """Test if to_dict is a method of city_inst"""
         self.assertTrue(hasattr(city_inst, "to_dict"), True)
+
+    def test_exist_file_json(self):
+        """Test that check if the file.json was create"""
+        path = "file.json"
+        new = City()
+        self.assertTrue(os.path.isfile(path))
+
+    def test_model_from_dict(self):
+        """Test that check if two objects are equals"""
+        new_dict = city_inst.to_dict()
+        new_city = City(**new_dict)
+        self.assertNotEqual(city_inst, new_city)

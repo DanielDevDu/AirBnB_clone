@@ -23,6 +23,21 @@ classes = {
 }
 
 
+def isnumber(num):
+    """
+    This functions check is num is int,
+    float or string and return it
+    """
+    try:
+        if num.isdigit() is True:  # verify if num is a str
+            num = int(num)
+        else:
+            num = float(num)  # try to convert to float
+        return num
+    except ValueError:
+        return str(num)
+
+
 class HBNBCommand(cmd.Cmd):
     """The console prompt"""
 
@@ -34,7 +49,7 @@ class HBNBCommand(cmd.Cmd):
         """
         return True
 
-    def do_quit(self, line):
+    def do_quit(self, arg):
         """
         Quit command to exit the program
         """
@@ -164,6 +179,7 @@ class HBNBCommand(cmd.Cmd):
                         if key in store.keys():
                             if len(args) > 3:  # exit attribute value?
                                 args_re = args[3][1:-1]
+                                args_re = isnumber(args_re)
                                 setattr(store[key], args[2], args_re)
                                 storage.save()
                             else:

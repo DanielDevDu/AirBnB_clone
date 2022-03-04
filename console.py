@@ -10,7 +10,7 @@ from models.city import City
 from models.amenity import Amenity
 from models.review import Review
 from models.__init__ import storage
-import re
+
 
 classes = {
     "BaseModel": BaseModel,
@@ -95,7 +95,7 @@ class HBNBCommand(cmd.Cmd):
         """
         Deletes an instance based on the class name and
         id (save the change into the JSON file).
-        Usage: $ destroy BaseModel 1234-1234-1234
+        Usage: $ destroy ClassName 1234-1234-1234
         """
         args = arg.split()
 
@@ -164,7 +164,6 @@ class HBNBCommand(cmd.Cmd):
                         if key in store.keys():
                             if len(args) > 3:  # exit attribute value?
                                 args_re = args[3][1:-1]
-                                print("->", args_re)
                                 setattr(store[key], args[2], args_re)
                                 storage.save()
                             else:

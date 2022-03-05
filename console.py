@@ -194,6 +194,35 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** class doesn't exist **")
 
+    def default(self, arg):
+        """
+        retrieve all instances of a class
+        Usage: <class name>.all()
+        """
+        args = arg.split(".")
+        store = storage.all()
+
+        if len(args) != 2 or args[0] not in classes:
+            cmd.Cmd.default(self, arg)
+        else:
+            if args[1] == "all()":
+                self.do_all(args[0])
+            elif args[1] == "count()":
+                sum = 0
+                for value in store.keys():
+                    class_name = value.split(".")[0]
+                    if class_name == args[0]:
+                        sum += 1
+                print(sum)
+            elif 'show("' in args[1] and args[1][-1] == ")":
+                index_start = args[1].find("(") + 2  # index where start the id
+                index_end = args[1].find(")") - 1  # index where end the id
+                id = args[1][index_start:index_end]
+                self.do_show(args[0] + " " + id)
+
+            else:
+                cmd.Cmd.default(self, arg)
+
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()

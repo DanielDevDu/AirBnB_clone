@@ -40,10 +40,6 @@ class FileStorage:
         key = obj.__class__.__name__ + "." + obj.__dict__["id"]
         new_dict = {key: obj}
         self.__objects.update(new_dict)
-        """
-        if obj is not None:
-            key = obj.__class.__name__ + "." + obj.__class.__name__.id
-            self.__objects[key] = obj"""
 
     def save(self):
         """Serializes __objects to the JSON file (path: __file_path)"""

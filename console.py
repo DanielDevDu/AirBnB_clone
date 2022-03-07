@@ -179,9 +179,7 @@ class HBNBCommand(cmd.Cmd):
                         key = args[0] + "." + args[1]
                         if key in store.keys():
                             if len(args) > 3:  # exit attribute value?
-                                #args_re = args[3][1:-1]
                                 args_re = args[3].strip("\"")
-                                #args_re = str(args_re)
                                 args_re = isnumber(args_re)
                                 setattr(store[key], args[2], args_re)
                                 storage.save()
@@ -232,12 +230,13 @@ class HBNBCommand(cmd.Cmd):
                 id = args[1][index_start:index_end]
                 id.split(",")
                 remove = id.replace("\"", "")
-                remove_2 =  remove.replace(",", "")
+                remove_2 = remove.replace(",", "")
                 prueba = (args[0] + " " + remove_2)
                 self.do_update(args[0] + " " + remove_2)
 
             else:
                 cmd.Cmd.default(self, arg)
+
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()

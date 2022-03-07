@@ -179,7 +179,9 @@ class HBNBCommand(cmd.Cmd):
                         key = args[0] + "." + args[1]
                         if key in store.keys():
                             if len(args) > 3:  # exit attribute value?
-                                args_re = args[3][1:-1]
+                                #args_re = args[3][1:-1]
+                                args_re = args[3].strip("\"")
+                                #args_re = str(args_re)
                                 args_re = isnumber(args_re)
                                 setattr(store[key], args[2], args_re)
                                 storage.save()
@@ -219,6 +221,24 @@ class HBNBCommand(cmd.Cmd):
                 index_end = args[1].find(")") - 1  # index where end the id
                 id = args[1][index_start:index_end]
                 self.do_show(args[0] + " " + id)
+            elif 'destroy("' in args[1] and args[1][-1] == ")":
+                index_start = args[1].find("(") + 2  # index where start the id
+                index_end = args[1].find(")") - 1  # index where end the id
+                id = args[1][index_start:index_end]
+                self.do_destroy(args[0] + " " + id)
+            elif 'update("' in args[1] and args[1][-1] == ")":
+                index_start = args[1].find("(") + 2  # index where start the id
+                index_end = args[1].find(")") - 1  # index where end the id
+                id = args[1][index_start:index_end]
+                id.split(",")
+                print(id)
+                remove = id.replace("\"", "")
+                remove_2 =  remove.replace(",", "")
+                print("-------------------")
+                prueba = (args[0] + " " + remove_2)
+                print(prueba)
+                self.do_update(args[0] + " " + remove_2)
+
 
             else:
                 cmd.Cmd.default(self, arg)

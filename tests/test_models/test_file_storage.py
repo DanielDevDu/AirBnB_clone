@@ -67,3 +67,10 @@ class test_file_storage(unittest.TestCase):
         """Test that check if the file.json was create"""
         path = "file.json"
         self.assertTrue(os.path.isfile(path))
+
+    def test_all_returns_dict(self):
+        """Test that all returns the FileStorage.__objects attr"""
+        storage = FileStorage()
+        new_dict = storage.all()
+        self.assertEqual(type(new_dict), dict)
+        self.assertIs(new_dict, storage._FileStorage__objects)

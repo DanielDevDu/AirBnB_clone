@@ -108,5 +108,7 @@ class test_base_model(unittest.TestCase):
         self.assertEqual(newdict["__class__"], "BaseModel")
         self.assertEqual(type(newdict["created_at"]), str)
         self.assertEqual(type(newdict["updated_at"]), str)
-        self.assertEqual(newdict["created_at"], temp.created_at.strftime(time_format))
-        self.assertEqual(newdict["updated_at"], temp.updated_at.strftime(time_format))
+        self.assertEqual(newdict["created_at"],
+                         temp.created_at.strftime(time_format))
+        self.assertEqual(newdict["updated_at"],
+                         temp.updated_at.strftime(time_format))

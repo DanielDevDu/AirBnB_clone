@@ -231,18 +231,13 @@ class HBNBCommand(cmd.Cmd):
                 index_end = args[1].find(")") - 1  # index where end the id
                 id = args[1][index_start:index_end]
                 id.split(",")
-                print(id)
                 remove = id.replace("\"", "")
                 remove_2 =  remove.replace(",", "")
-                print("-------------------")
                 prueba = (args[0] + " " + remove_2)
-                print(prueba)
                 self.do_update(args[0] + " " + remove_2)
-
 
             else:
                 cmd.Cmd.default(self, arg)
-
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()

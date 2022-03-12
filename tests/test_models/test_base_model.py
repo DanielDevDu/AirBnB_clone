@@ -82,3 +82,33 @@ class test_base_model(unittest.TestCase):
         path = "file.json"
         new = BaseModel()
         self.assertTrue(os.path.isfile(path))
+
+    def test_to_dict(self):
+        """ Tests conversion of object attributes to dictionary for json """
+        my_model = BaseModel()
+        my_model.name = "Lolita"
+        my_model.my_number = 20
+        d = my_model.to_dict()
+        expected_attrs = ["id",
+                          "created_at",
+                          "updated_at",
+                          "name",
+                          "my_number",
+                          "__class__"]
+        self.assertCountEqual(d.keys(), expected_attrs)
+        self.assertEqual(d['__class__'], 'BaseModel')
+        self.assertEqual(d['name'], "Lolita")
+        self.assertEqual(d['my_number'], 20)
+
+    def test_to_dict_values(self):
+        """Tests that values in dict returned from to_dict are correct"""
+        time_format = "%Y-%m-%dT%H:%M:%S.%f"
+        temp = BaseModel()
+        newdict = temp.to_dict()
+        self.assertEqual(newdict["__class__"], "BaseModel")
+        self.assertEqual(type(newdict["created_at"]), str)
+        self.assertEqual(type(newdict["updated_at"]), str)
+        self.assertEqual(newdict["created_at"],
+                         temp.created_at.strftime(time_format))
+        self.assertEqual(newdict["updated_at"],
+                         temp.updated_at.strftime(time_format))

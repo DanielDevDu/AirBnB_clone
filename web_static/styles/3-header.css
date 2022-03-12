@@ -1,0 +1,24 @@
+header {
+    background-color: rgb(255, 255, 255);
+    height: 70px;
+    width: 100%;
+    border-bottom: 1px solid #CCCCCC;
+    display: flex;
+    align-items: center;
+}
+
+.navigation-flex{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.logo{
+    height: 3rem;
+    width: 7rem;
+    background-image: url(/images/logo.png);
+    background-size: cover;
+    margin-left: 20px;
+}

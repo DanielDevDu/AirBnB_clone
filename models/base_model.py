@@ -14,7 +14,7 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """Initialization of the base model"""
-        if len(kwargs) != 0:
+        if kwargs:
             for key, value in kwargs.items():
                 if key != '__class__':
                     if key == "created_at" or key == "updated_at":

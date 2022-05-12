@@ -177,7 +177,7 @@ class HBNBCommand(cmd.Cmd):
                     if len(args) > 2:  # exist attribute name?
                         store = storage.all()
                         key = args[0] + "." + args[1]
-                        if key in store.keys():
+                        if key in store.keys() and key in store:
                             if len(args) > 3:  # exit attribute value?
                                 args_re = args[3].strip("[\"\']")
                                 args_re = isnumber(args_re)

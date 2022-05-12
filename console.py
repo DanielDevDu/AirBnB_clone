@@ -179,7 +179,7 @@ class HBNBCommand(cmd.Cmd):
                         key = args[0] + "." + args[1]
                         if key in store.keys():
                             if len(args) > 3:  # exit attribute value?
-                                args_re = args[3].strip("\"")
+                                args_re = args[3].strip("[\"\']")
                                 args_re = isnumber(args_re)
                                 setattr(store[key], args[2], args_re)
                                 storage.save()
@@ -225,14 +225,26 @@ class HBNBCommand(cmd.Cmd):
                 id = args[1][index_start:index_end]
                 self.do_destroy(args[0] + " " + id)
             elif 'update("' in args[1] and args[1][-1] == ")":
+
                 index_start = args[1].find("(") + 2  # index where start the id
-                index_end = args[1].find(")") - 1  # index where end the id
-                id = args[1][index_start:index_end]
-                id.split(",")
-                remove = id.replace("\"", "")
-                remove_2 = remove.replace(",", "")
-                prueba = (args[0] + " " + remove_2)
-                self.do_update(args[0] + " " + remove_2)
+                index_end = args[1].find(")")  # index where end the id
+                data = args[1][index_start:index_end]
+                data = data.replace("\"", "")
+
+                index_start_dict = data.find("{")  # index where start the id
+                index_end_dict = data.find("}")  # index where end the id
+
+                if index_start_dict == -1:
+                    data = data.replace(",", "")
+                    self.do_update(args[0] + " " + data)
+                else:
+                    data_dict = data[index_start_dict + 1:index_end_dict]
+                    data_dict = data_dict.split(",")
+                    id = data.split(",")[0]
+                    for values in data_dict:
+                        key, value = values.split(":")
+                        self.do_update(args[0] + " " + str(id) +
+                                       " " + str(key) + " " + str(value))
 
             else:
                 cmd.Cmd.default(self, arg)

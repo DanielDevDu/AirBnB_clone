@@ -15,13 +15,14 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """Initialization of the base model"""
         if kwargs:
-            for key, value in kwargs.items():
-                if key != '__class__':
-                    if key == "created_at" or key == "updated_at":
-                        value = datetime.strptime(value, time)
-                        setattr(self, key, value)
-                    else:
-                        setattr(self, key, value)
+            kwargs['updated_at'] = datetime.strptime(
+                kwargs['updated_at'], time
+                )
+            kwargs['created_at'] = datetime.strptime(
+                kwargs['created_at'], time
+                )
+            del kwargs['__class__']
+            self.__dict__.update(kwargs)
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
